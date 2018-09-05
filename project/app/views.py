@@ -1,18 +1,14 @@
-from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.response import Response
 from .models import School, Student
 from .serializer import SchoolSerializer, StudentSerializer
 
 
-class SchoolList(APIView):
-    def get(self, request):
-        schools = School.objects.all()
-        serializer = SchoolSerializer(schools, many=True)
-        return Response(serializer.data)
+class SchoolList(viewsets.ModelViewSet):
+    queryset = School.objects.all()
+    serializer_class = SchoolSerializer
 
 
-class StudentList(APIView):
-    def get(self, request):
-        students = Student.objects.all()
-        serializer = StudentSerializer(students, many=True)
-        return Response(serializer.data)
+class StudentList(viewsets.ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
