@@ -4,11 +4,11 @@ from .models import School, Student
 from .serializer import SchoolSerializer, StudentSerializer
 
 
-class SchoolList(viewsets.ModelViewSet):
+class SchoolView(viewsets.ModelViewSet):
     queryset = School.objects.all()
     serializer_class = SchoolSerializer
 
 
-class StudentList(viewsets.ModelViewSet):
+class StudentView(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer

@@ -2,7 +2,15 @@ from django.conf.urls import url
 
 from . import views
 
+schoolView = views.SchoolView.as_view({
+    'get': 'list',
+    'post': 'create'})
+studentView = views.StudentView.as_view({
+    'get': 'list',
+    'post': 'create'})
+
+
 urlpatterns = [
-    url('schools/', views.SchoolList.as_view()),
-    url('students/', views.StudentList.as_view()),
+    url('schools/', schoolView),
+    url('students/', studentView),
 ]
