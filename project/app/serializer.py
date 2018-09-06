@@ -18,5 +18,6 @@ class StudentSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'student_id',
-            'school'
+            'school',
+            'identification_id'
         )

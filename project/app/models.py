@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 
 
@@ -29,3 +30,6 @@ class Student(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Student School'
     )
+    identification_id = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False)
