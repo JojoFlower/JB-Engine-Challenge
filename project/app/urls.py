@@ -1,16 +1,28 @@
-from django.conf.urls import url
+from django.urls import path
 
 from . import views
 
-schoolView = views.SchoolView.as_view({
+schoolList = views.SchoolView.as_view({
     'get': 'list',
     'post': 'create'})
-studentView = views.StudentView.as_view({
+studentList = views.StudentView.as_view({
     'get': 'list',
     'post': 'create'})
+schoolDetail = views.SchoolView.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'})
+studentDetail = views.StudentView.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'})
 
 
 urlpatterns = [
-    url('schools/', schoolView),
-    url('students/', studentView),
+    path('schools/', schoolList),
+    path('students/', studentList),
+    path('schools/<int:pk>/', schoolDetail),
+    path('students/<int:pk>/', studentDetail),
 ]
