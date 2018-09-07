@@ -9,6 +9,7 @@ djangorestframework = "*"
 "flake8" = "*"
 "psycopg2" = "*"
 "psycopg2-binary" = "*"
+drf-nested-routers = "*"
 
 [dev-packages]
 
