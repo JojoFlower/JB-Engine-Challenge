@@ -21,7 +21,7 @@ studentDetail = views.StudentView.as_view({
     'delete': 'destroy'})
 
 schoolRouter = routers.SimpleRouter()
-schoolRouter.register(r'schools', views.SchoolNestedView)
+schoolRouter.register(r'schools', views.SchoolView)
 studentRouter = routers.NestedSimpleRouter(schoolRouter, r'schools', lookup='schools')
 studentRouter.register(r'students', views.StudentNestedView)
 
